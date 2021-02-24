@@ -1,0 +1,296 @@
+@import "./common.less";
+
+body {
+    
+    background-color: #eee;
+    height: 2000px;
+}
+
+// 头部导航
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 9999;
+    // 顶部导航区域
+    .top {
+        display: flex;
+        height: (135 / @vw);
+        background-color: rgb(66, 66, 66);
+        // logo区域
+        .logo {
+            padding: (26 / @vw) (17 / @vw) (21 / @vw);
+            img {
+                width: (240 / @vw);
+                height: (88 / @vw);
+            }
+        }
+        // 菜单按钮
+        .menu-btn {
+            width: (129 / @vw);
+            height: (135 / @vw);
+            background: url("../img/menuBtn.png") no-repeat;
+            background-size: (62 / @vw) (199 / @vw);
+            background-position: center (16 / @vw);
+
+            &.cancel-btn {
+                background-position: center (-100 / @vw);
+            }
+        }
+
+        // 按钮容器
+        .btn-box {
+            display: flex;
+            padding-top: (21 / @vw);
+            margin-left: (80 / @vw);
+
+            a {
+                width: (141 / @vw);
+                height: (88 / @vw);
+                line-height: (88 / @vw);
+                background-color: rgb(152, 216, 23);
+                color: #fff;
+                font-size: (42 / @vw);
+                text-align: center;
+                border-radius: (15 / @vw);
+                margin-left: (50 / @vw);
+            }
+        }
+    }
+
+    // 顶部搜索区域
+    .search {
+        position: relative;
+        z-index: 5;
+        opacity: 1;
+        height: (103 / @vw);
+        padding: (16 / @vw);
+        transition: opacity 0.3s linear;
+        background-color: rgb(66, 66, 66);
+        input {
+            box-sizing: border-box;
+            width: (829 / @vw);
+            height: (103 / @vw);
+            background-color: #999;
+            padding: (5 / @vw) (10 / @vw);
+            font-size: (41 / @vw);
+            color: #333;
+            border-radius: (15 / @vw);
+            &:focus {
+                background-color: #fff;
+                border: none;
+            }
+        }
+        button {
+            width: (203 / @vw);
+            height: (103 / @vw);
+            border: none;
+            background-color: #838282;
+            color: #fff;
+            font-size: (41 / @vw);
+            border-radius: (15 / @vw);
+        }
+    }
+
+    // 遮罩层
+    .mask {
+        position: absolute;
+        z-index: 6;
+        display: none;
+        top: (135 / @vw);
+        width: 100vw;
+        padding: (10 / @vw) 0;
+        border: (3 / @vw) solid #fff;
+        background-color: rgb(128, 128, 128);
+        color: white;
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            li {
+                width: 22.5%;
+                height: (135 / @vw);
+                line-height: (135 / @vw);
+                font-size: (54 / @vw);
+                text-align: center;
+            }
+        }
+    }
+}
+
+// 滚动的内容区域
+#scroll-wrap {
+    position: fixed;
+    margin-top: (270 / @vw);
+    height: (100vh - 14);
+    width: 100vw;
+    .content {
+        padding-bottom: (300 / @vw);
+    }
+
+    // 横向滚动导航区域
+    #nav {
+        box-sizing: border-box;
+        padding: (22 / @vw) 0 (14 / @vw) 0;
+        background-color: rgba(221, 221, 221, 0.637);
+        a {
+            display: inline-block;
+            height: (79 / @vw);
+            line-height: (79 / @vw);
+            padding: 0 (18 / @vw);
+            font-size: (50 / @vw);
+            margin-left: (20 / @vw);
+
+            &.active {
+                background-color: rgb(143, 212, 5);
+                color: #fff;
+                font-weight: bold;
+                border-radius: (20 / @vw);
+            }
+        }
+
+        // swiper轮播区域
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .carousel {
+        img {
+            width: 100vw;
+        }
+    }
+
+    // 电影内容区域
+    .movie {
+        width: (1046 / @vw);
+        background-color: #fff;
+        margin: 0 auto;
+        padding: (10 / @vw);
+        box-sizing: border-box;
+
+        // 头部
+        .top {
+            display: flex;
+            justify-content: space-between;
+            height: (135 / @vw);
+            line-height: (135 / @vw);
+            border-bottom: (1 / @vw) solid rgb(219, 216, 216);
+
+            h3 {
+                font-size: (80 / @vw);
+            }
+
+            span {
+                font-size: (50 / @vw);
+            }
+        }
+
+        // 国家导航
+        .country {
+            position: relative;
+            height: (105 / @vw);
+            line-height: (105 / @vw);
+
+            span {
+                height: (105 / @vw);
+                width: (120 / @vw);
+                font-size: (44 / @vw);
+                text-align: center;
+                color: #6b6b6b;
+                margin: (10 / @vw);
+                &.active {
+                    color: green;
+                    // border-bottom: (10 / @vw) solid green;
+                    font-weight: bold;
+                }
+            }
+            // 绿色的线
+            .line {
+                position: absolute;
+                bottom: (8 / @vw);
+                left: 0;
+                width: (100 / @vw);
+                border-bottom: (10 / @vw) solid green;
+                transition: left .5s linear;
+            }
+        }
+
+        // 电影列表
+        .list {
+            .swiper-container {
+                width: 100%;
+                height: 100%;
+            }
+
+            .swiper-slide{
+                // position: relative;
+                // display: flex;
+                width: 100% !important;
+                height: 100%;
+                // overflow: hidden;
+            }
+
+            .movie-list {
+                // width:95vw;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+            // 电影介绍
+            .movie-list .item {
+                box-sizing: border-box;
+                width: (486 / @vw);
+                margin: (8 / @vw);
+                margin-bottom: (15 / @vw);
+                font-size: (40 / @vw);
+                background-color: #efefef;
+                color: #000;
+                padding-bottom: (15 / @vw);
+    
+                a > img {
+                    width: 100%;
+                }
+    
+                a > span {
+                    display: inline-block;
+                    width: 100%;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+    
+                .info {
+                    display: flex;
+                    font-size: (30 / @vw);
+                    margin-top: (20 / @vw);
+    
+                    .icon {
+                        display: inline-block;
+                        width: (35 / @vw);
+                        height: (35 / @vw);
+                        background: url("../img/ice.png") no-repeat;
+                    }
+    
+                    .right .icon {
+                        background-position: 0 -20px;
+                        margin-left: (20 / @vw);
+                    }
+                }
+            }
+
+            // loading区域
+            .loading {
+                img {
+                    position: relative;
+                    left:40vw;
+                    top: 30vh;
+                }
+            }
+        }
+
+    }
+}
